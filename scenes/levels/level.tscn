@@ -1,27 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cne8ftc38ulko"]
+[gd_scene load_steps=6 format=3 uid="uid://cne8ftc38ulko"]
 
-[ext_resource type="Texture2D" uid="uid://b6tr3uptv8ur2" path="res://icon.svg" id="1_vpcg6"]
-[ext_resource type="Texture2D" uid="uid://bt1r15iprrtk5" path="res://graphics/car/main.png" id="2_wgchw"]
-[ext_resource type="PackedScene" uid="uid://do014yl7jdwx5" path="res://scenes/player/player.tscn" id="3_bc5d0"]
-[ext_resource type="PackedScene" uid="uid://csa4g2cujrvmi" path="res://scenes/objects/bed.tscn" id="4_en1m5"]
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_p30xf"]
+[ext_resource type="PackedScene" uid="uid://bgnk3skv32glk" path="res://scenes/objects/box.tscn" id="4_dq53i"]
+[ext_resource type="PackedScene" uid="uid://do014yl7jdwx5" path="res://scenes/player/player.tscn" id="4_s3fts"]
+[ext_resource type="PackedScene" uid="uid://csa4g2cujrvmi" path="res://scenes/objects/bed.tscn" id="5_lejas"]
+[ext_resource type="PackedScene" uid="uid://b57y1q0x67n5x" path="res://scenes/objects/drone.tscn" id="5_xwcp5"]
 
 [node name="Level" type="Node2D"]
-rotation = -1.67552
+script = ExtResource("1_p30xf")
 
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(-135.703, 133.547)
-texture = ExtResource("1_vpcg6")
+[node name="Bed" parent="." instance=ExtResource("5_lejas")]
+position = Vector2(157, 79)
 
-[node name="Car" type="Sprite2D" parent="Logo"]
-position = Vector2(-190.721, 762.24)
-rotation = 1.67552
-texture = ExtResource("2_wgchw")
+[node name="Player" parent="." instance=ExtResource("4_s3fts")]
+position = Vector2(530, 592)
 
-[node name="Player" parent="." instance=ExtResource("3_bc5d0")]
-position = Vector2(-535.267, 577.211)
-rotation = 1.67552
+[node name="Box" parent="." instance=ExtResource("4_dq53i")]
+position = Vector2(960, 140)
 
-[node name="Bed" parent="." instance=ExtResource("4_en1m5")]
-position = Vector2(-383.622, 301.552)
-rotation = 0.120428
-scale = Vector2(0.8, 0.8)
+[node name="Drone" parent="." instance=ExtResource("5_xwcp5")]
+position = Vector2(140, 408)

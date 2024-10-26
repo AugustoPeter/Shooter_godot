@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b57y1q0x67n5x"]
+
+[ext_resource type="Texture2D" uid="uid://br8y648ukd4vf" path="res://graphics/enemies/drone.png" id="1_apxqp"]
+
+[sub_resource type="GDScript" id="GDScript_8ypnc"]
+script/source = "extends CharacterBody2D
+
+var speed = 400
+
+
+func _process(_delta: float) -> void:
+	var direction = Vector2.RIGHT
+	
+	velocity = direction * speed
+	
+	move_and_slide()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7y7f"]
+radius = 72.0069
+
+[node name="Drone" type="CharacterBody2D"]
+script = SubResource("GDScript_8ypnc")
+
+[node name="DroneImg" type="Sprite2D" parent="."]
+texture = ExtResource("1_apxqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l7y7f")

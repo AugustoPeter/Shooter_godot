@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://do014yl7jdwx5"]
+[gd_scene load_steps=4 format=3 uid="uid://do014yl7jdwx5"]
 
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_etcwr"]
 [ext_resource type="Texture2D" uid="uid://bcq6uh3rvej4u" path="res://graphics/player/player.png" id="1_pehtn"]
-[ext_resource type="Texture2D" uid="uid://wx8p1ujgtoj1" path="res://graphics/projectiles/blue.png" id="2_c3442"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ybybm"]
+radius = 59.6657
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_etcwr")
 
 [node name="PlayerImg" type="Sprite2D" parent="."]
+position = Vector2(2, -35)
 texture = ExtResource("1_pehtn")
 
-[node name="LaserImg" type="Sprite2D" parent="PlayerImg"]
-position = Vector2(19, -189)
-texture = ExtResource("2_c3442")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ybybm")
