@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://5snxv1cfnno4"]
+
+[ext_resource type="PackedScene" uid="uid://cne8ftc38ulko" path="res://scenes/levels/level.tscn" id="1_eu74g"]
+[ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_2rp07"]
+[ext_resource type="PackedScene" uid="uid://chhmwh43lp255" path="res://scenes/objects/steam_vent.tscn" id="2_lnslt"]
+[ext_resource type="Texture2D" uid="uid://n7rprey2jr38" path="res://graphics/ground/stones.png" id="2_nuhwr"]
+[ext_resource type="PackedScene" uid="uid://c4m0kr7vrhdvs" path="res://scenes/objects/gate.tscn" id="2_o1xll"]
+[ext_resource type="PackedScene" uid="uid://2w6d8cbqbpco" path="res://scenes/houses/house.tscn" id="4_gju72"]
+[ext_resource type="PackedScene" uid="uid://rq18222o12k3" path="res://graphics/objects/light_fan_animation.tscn" id="5_stxey"]
+[ext_resource type="PackedScene" uid="uid://b57y1q0x67n5x" path="res://scenes/objects/drone.tscn" id="7_lwvvt"]
+
+[node name="outside" instance=ExtResource("1_eu74g")]
+script = ExtResource("2_2rp07")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
+texture_repeat = 2
+texture = ExtResource("2_nuhwr")
+region_enabled = true
+region_rect = Rect2(-12143.3, -3095.93, 28729.5, 9197.17)
+
+[node name="SteamVent" parent="Ground" index="1" instance=ExtResource("2_lnslt")]
+position = Vector2(391, 430)
+
+[node name="House" parent="Ground" index="2" instance=ExtResource("4_gju72")]
+position = Vector2(-2092, 2320)
+rotation = -1.5708
+
+[node name="LightFanAnimation" parent="Ground" index="3" instance=ExtResource("5_stxey")]
+position = Vector2(-1374, 1246)
+scale = Vector2(1.6, 1.6)
+autoplay = "default"
+frame_progress = 0.0
+
+[node name="Gate" parent="." index="2" instance=ExtResource("2_o1xll")]
+position = Vector2(823, -362)
+scale = Vector2(0.748271, 0.800897)
+metadata/_edit_lock_ = true
+
+[node name="Drone" parent="." index="3" instance=ExtResource("7_lwvvt")]
+position = Vector2(250, 1305)
+
+[connection signal="player_etered_gate" from="Gate" to="." method="_on_gate_player_etered_gate"]
