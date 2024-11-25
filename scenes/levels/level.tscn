@@ -18,10 +18,5 @@ position = Vector2(349, 731)
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-color = Color(0.598914, 0.467047, 0, 1)
-energy = 0.68
-blend_mode = 1
-
 [connection signal="granade" from="Player" to="." method="_on_player_granade"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]

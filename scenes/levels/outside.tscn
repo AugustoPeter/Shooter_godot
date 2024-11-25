@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://5snxv1cfnno4"]
+[gd_scene load_steps=11 format=3 uid="uid://5snxv1cfnno4"]
 
 [ext_resource type="PackedScene" uid="uid://cne8ftc38ulko" path="res://scenes/levels/level.tscn" id="1_eu74g"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_2rp07"]
@@ -8,12 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://2w6d8cbqbpco" path="res://scenes/houses/house.tscn" id="4_gju72"]
 [ext_resource type="PackedScene" uid="uid://rq18222o12k3" path="res://graphics/objects/light_fan_animation.tscn" id="5_stxey"]
 [ext_resource type="PackedScene" uid="uid://b57y1q0x67n5x" path="res://scenes/objects/drone.tscn" id="7_lwvvt"]
+[ext_resource type="PackedScene" uid="uid://c5gohlyty4s0q" path="res://scenes/objects/toilet.tscn" id="9_upcvr"]
+[ext_resource type="PackedScene" uid="uid://bk5xcqqilk22g" path="res://scenes/objects/crate.tscn" id="10_rnawt"]
 
 [node name="outside" instance=ExtResource("1_eu74g")]
 script = ExtResource("2_2rp07")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
+position = Vector2(-50, -40)
 texture = ExtResource("2_nuhwr")
 region_enabled = true
 region_rect = Rect2(-12143.3, -3095.93, 28729.5, 9197.17)
@@ -38,5 +41,16 @@ metadata/_edit_lock_ = true
 
 [node name="Drone" parent="." index="3" instance=ExtResource("7_lwvvt")]
 position = Vector2(250, 1305)
+
+[node name="Toilet" parent="." index="4" instance=ExtResource("9_upcvr")]
+position = Vector2(1480, 1142)
+
+[node name="ItemContainer" parent="." index="5" instance=ExtResource("10_rnawt")]
+position = Vector2(1238, 1658)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7"]
+color = Color(0.598914, 0.467047, 0, 1)
+energy = 0.68
+blend_mode = 1
 
 [connection signal="player_etered_gate" from="Gate" to="." method="_on_gate_player_etered_gate"]
