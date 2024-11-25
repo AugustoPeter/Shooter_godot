@@ -48,7 +48,7 @@ position = Vector2(1480, 1142)
 [node name="ItemContainer" parent="." index="5" instance=ExtResource("10_rnawt")]
 position = Vector2(1238, 1658)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7"]
+[node name="DirectionalLight2D2" type="DirectionalLight2D" parent="." index="8"]
 color = Color(0.598914, 0.467047, 0, 1)
 energy = 0.68
 blend_mode = 1
