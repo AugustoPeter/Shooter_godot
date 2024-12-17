@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://c408tbxc0t632"]
+[gd_scene load_steps=14 format=4 uid="uid://c408tbxc0t632"]
 
 [ext_resource type="PackedScene" uid="uid://cne8ftc38ulko" path="res://scenes/levels/level.tscn" id="1_24n7c"]
 [ext_resource type="Texture2D" uid="uid://c66yygwfnp0jl" path="res://graphics/ground/dirt.png" id="2_7ahos"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_cmr57"]
 [ext_resource type="TileSet" uid="uid://b0p2eal0nn03e" path="res://scenes/levels/house.tres" id="2_m34ca"]
+[ext_resource type="PackedScene" uid="uid://5snxv1cfnno4" path="res://scenes/levels/outside.tscn" id="3_c01i4"]
 [ext_resource type="Texture2D" uid="uid://dj2bh6n0c104j" path="res://graphics/lights/textures/circle.png" id="4_hqlyq"]
 [ext_resource type="PackedScene" uid="uid://rq18222o12k3" path="res://graphics/objects/light_fan_animation.tscn" id="4_wdvke"]
 [ext_resource type="Texture2D" uid="uid://dd1dfklhx8lfc" path="res://graphics/lights/overlays/infrastructure.png" id="5_567oq"]
@@ -17,6 +18,7 @@ size = Vector2(742, 460)
 
 [node name="inside" instance=ExtResource("1_24n7c")]
 script = ExtResource("2_cmr57")
+outside_level_scene = ExtResource("3_c01i4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 visible = false
@@ -42,20 +44,19 @@ tile_map_data = PackedByteArray("AAD7//r/AgAEAAAAAAD8//r/AgAEAAAAAAD9//r/AgAEAAA
 tile_set = ExtResource("2_m34ca")
 metadata/_edit_lock_ = true
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="2"]
-visible = false
-color = Color(0.791167, 0.558653, 0.468483, 1)
-energy = 1.24
-blend_mode = 1
-metadata/_edit_lock_ = true
-
-[node name="Player" parent="." index="3"]
-position = Vector2(4598, 24)
+[node name="Player" parent="." index="2"]
+position = Vector2(4405, -1)
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
 energy = 0.5
 texture = ExtResource("4_hqlyq")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="3"]
+color = Color(0.791167, 0.558653, 0.468483, 1)
+energy = 1.24
+blend_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="FanLights" type="Node2D" parent="lights" index="0"]
 metadata/_edit_lock_ = true
